@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
+const cors = require("cors");
 const app = express();
-require("dotenv").config();
+app.use(cors());
 
 const marvelAPIKey = process.env.MARVEL_API_KEY;
 
