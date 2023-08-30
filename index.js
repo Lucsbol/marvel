@@ -19,7 +19,7 @@ app.get("/comics", async (req, res) => {
   } catch (error) {
     console.error("Error", error);
     res.status(500).json({
-      error:
+      message:
         "Une erreur a eu lieu lors de la récupération de la liste des comics",
     });
   }
@@ -36,7 +36,7 @@ app.get("/comic/:comicId", async (req, res) => {
   } catch (error) {
     console.error("Error :", error);
     res.status(500).json({
-      error:
+      message:
         "Une erreur a eu lieu lors de la récupération lors des détails d'un comic spécifique",
     });
   }
@@ -53,7 +53,7 @@ app.get("/comics/:characterId", async (req, res) => {
   } catch (error) {
     console.error("Error", error);
     res.status(500).json({
-      error:
+      message:
         "Une erreur a eu lieu lors de la récupération des comics d'un perso",
     });
   }
@@ -69,7 +69,7 @@ app.get("/characters", async (req, res) => {
   } catch (error) {
     console.error("Error fetching characters:", error);
     res.status(500).json({
-      error:
+      message:
         "Une erreur a eu lieu lors de la récupération de la liste des personnages",
     });
   }
@@ -86,7 +86,7 @@ app.get("/characters/:characterId", async (req, res) => {
   } catch (error) {
     console.error("Error fetching character detail:", error);
     res.status(500).json({
-      error:
+      message:
         "Une erreur a eu lieu lors de la récupération des détails d'un perso",
     });
   }
