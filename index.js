@@ -92,6 +92,11 @@ app.get("/characters/:characterId", async (req, res) => {
   }
 });
 
+// Gestion de toutes les autres routes (page non trouvée)
+app.all("*", function (req, res) {
+  res.json({ message: "Page not found" });
+});
+
 app.listen(process.env.PORT, () => {
   console.log("Server has started");
 });
