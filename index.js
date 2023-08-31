@@ -14,6 +14,9 @@ app.get("/", (req, res) => {
 
 // Liste des comics
 app.get("/comics", async (req, res) => {
+  const skip = parseInt(req.query.skip) || 0;
+  const limit = parseInt(req.query.limit) || 100;
+  const title = req.query.title || "";
   try {
     const response = await axios.get(
       `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${marvelAPIKey}`
@@ -64,6 +67,9 @@ app.get("/comics/:characterId", async (req, res) => {
 
 // Liste de tous les perso
 app.get("/characters", async (req, res) => {
+  const skip = parseInt(req.query.skip) || 0;
+  const limit = parseInt(req.query.limit) || 20; // Adjust the limit as needed
+  const name = req.query.name || "";
   try {
     const response = await axios.get(
       `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${marvelAPIKey}`
@@ -103,3 +109,4 @@ app.all("*", function (req, res) {
 app.listen(process.env.PORT, () => {
   console.log("Server has started");
 });
+
