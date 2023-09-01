@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.get("/comics", async (req, res) => {
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${marvelAPIKey}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${marvelAPIKey}&offset=${offset}&limit=${limit}`
     );
     res.json(response.data);
   } catch (error) {
@@ -66,7 +66,7 @@ app.get("/comics/:characterId", async (req, res) => {
 app.get("/characters", async (req, res) => {
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${marvelAPIKey}`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${marvelAPIKey}&offset=${offset}&limit=${limit}`
     );
     res.json(response.data);
   } catch (error) {
