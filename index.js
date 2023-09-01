@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.get("/comics", async (req, res) => {
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${marvelAPIKey}&offset=${offset}&limit=${limit}`
+      `https://lereacteur-marvel-api.herokuapp.com/comics?limit=${limit}&skip=${skip}&title=${title}&apiKey=${process.env.API_KEY}`
     );
     res.json(response.data);
   } catch (error) {
@@ -66,7 +66,7 @@ app.get("/comics/:characterId", async (req, res) => {
 app.get("/characters", async (req, res) => {
   try {
     const response = await axios.get(
-      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${marvelAPIKey}&offset=${offset}&limit=${limit}`
+      `https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=${process.env.API_KEY}&limit=${limit}&skip=${skip}&name=${name}`
     );
     res.json(response.data);
   } catch (error) {
@@ -103,4 +103,3 @@ app.all("*", function (req, res) {
 app.listen(process.env.PORT, () => {
   console.log("Server has started");
 });
-
